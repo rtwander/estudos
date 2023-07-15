@@ -1,0 +1,1 @@
+Repositório para estudos com programação.
