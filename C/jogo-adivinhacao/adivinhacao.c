@@ -4,6 +4,10 @@
 #include <time.h>
 
 #define NUMERO_DE_TENTATIVAS 3
+#define TENTATIVAS_FACIL 20
+#define TENTATIVAS_MEDIO 15
+#define TENTATIVAS_DIFICIL 6
+#define PONTUACAO_INICIAL 1000
 
 int main() {
 
@@ -26,14 +30,14 @@ int main() {
 	int nivel;
 	int totaldetentativas;
 
-	// Definindo a quantidade de pontos inicial
-	double pontos = 1000;
-
-	// Gerando um número secreto aleatório
+	// definindo a quantidade de pontos inicial
+	double pontos = PONTUACAO_INICIAL;
+	
+	// gerando um numero secreto aleatorio
 	srand(time(0));
 	int numerosecreto = rand() % 100;
 
-	// Escolhendo um nível de dificuldade
+	// escolhendo o nivel de dificuldade
 	printf("Qual o nível de dificuldade?\n");
 	printf("(1) Fácil (2) Médio (3) Difícil\n\n");
 	printf("Escolha: ");
@@ -41,48 +45,50 @@ int main() {
 	scanf("%d", &nivel);
 
 	switch(nivel) {
-        case 1:
-            totaldetentativas = 20;
-            break;
-        case 2:
-            totaldetentativas = 15;
-            break;
-        default:
-            totaldetentativas = 6;
-            break;
-    }
+		case 1: 
+			totaldetentativas = TENTATIVAS_FACIL;
+			break;
+		case 2:
+			totaldetentativas = TENTATIVAS_MEDIO;
+			break;
+		default:
+			totaldetentativas = TENTATIVAS_DIFICIL;
+			break;
+	}
 
-	// Loop principal do jogo
+	// loop principal do jogo
 	for(int i = 1; i <= totaldetentativas; i++) {
 
-		printf("Tentativa %d de %d\n", i, totaldetentativas);
+		printf("-> Tentativa %d de %d\n", i, totaldetentativas);
 
-		printf("Qual é o seu %do. chute? ", i);
+		printf("Chute um número: ");
 		scanf("%d", &chute);
 
-		// Tratando chute de número negativo
+		// tratando chute de numero negativo
 		if(chute < 0) {
 			printf("Você não pode chutar números negativos\n");
+			i--;
 			continue;
 		}
 
-		// Verifica se acertou, foi maior ou menor
-		int acertou = chute == numerosecreto;
+		// verifica se acertou, foi maior ou menor
+		acertou = chute == numerosecreto;
 
 		if(acertou) {
+			acertou = 1;
 			break;
 		} else if(chute > numerosecreto) {
-			printf("Seu chute foi maior do que o número secreto!\n");
+			printf("\nSeu chute foi maior do que o número secreto!\n\n");
 		} else {
-			printf("Seu chute foi menor do que o número secreto!\n");
+			printf("\nSeu chute foi menor do que o número secreto!\n\n");
 		}
-		
-		// Calcula a quantidade de pontos
+
+		// calcula a quantidade de pontos
 		double pontosperdidos = abs(chute - numerosecreto) / 2.0;
 		pontos = pontos - pontosperdidos;
 	}
 
-	// Imprimindo mensagem de vitória ou derrota
+	// imprimindo mensagem de vitoria ou derrota
 	printf("\n");
 	if(acertou) {
 		printf("             OOOOOOOOOOO               \n");
