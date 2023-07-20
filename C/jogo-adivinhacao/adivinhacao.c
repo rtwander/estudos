@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUMERO_DE_TENTATIVAS 3
 #define TENTATIVAS_FACIL 20
 #define TENTATIVAS_MEDIO 15
 #define TENTATIVAS_DIFICIL 6
