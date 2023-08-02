@@ -1,16 +1,12 @@
-INSERT INTO produtos (
-	produto_nome,
-	produto_valor,
-	produto_situacao,
-	data_criacao,
-	data_atualizacao
+INSERT INTO PRODUTOS (
+	PRODUTO_CODIGO,
+	PRODUTO_NOME,
+	PRODUTO_VALOR,
+	PRODUTO_SITUACAO,
+	DATA_CRIACAO,
+	DATA_ATUALIZACAO
 )
-	
-	VALUES (
-		'0001',
-		'REFRIGERANTE',
-		'10',
-		'A',
-		'01/01/2023',
-		'01/01/2023'
-);
+VALUES
+	('0001', 'REFRIGERANTE', '10', 'A', '01/01/2023', '01/01/2023'),
+	('0002', 'AGUA', '3', 'A', '01/01/2023', '01/01/2023'),
+	('0003', 'PASTEL', '7', 'A', '01/01/2023', '01/01/2023');
