@@ -7,17 +7,17 @@ CREATE OR REPLACE FUNCTION
 	Pois assim garanto que elas estarão zeradas
 	quando for utilizá-las. */
 
-	total_comissao real := 0;
-	porc_comissao real := 0;
+	total_comissao REAL := 0;
+	porc_comissao REAL := 0;
 
 	/* declarando uma variável para armazenar
 	os registros dos loops */
 
-	reg record;
+	reg RECORD;
 
 	--cursor para buscar a % de comissão do funcionário
 
-	cr_porce CURSOR (func_id int) IS
+	cr_porce CURSOR (func_id INT) IS
 		SELECT rt_valor_comissao (func_id);
 
 		BEGIN
@@ -36,7 +36,7 @@ CREATE OR REPLACE FUNCTION
 		--abertura, utilização e fechamento do cursor
 
 		OPEN cr_porce(reg.funcionario_id);
-		FETCH cr_porce int porc_comissao;
+		FETCH cr_porce INT porc_comissao;
 		CLOSE cr_porce;
 
 		total_comissao := (reg.venda_total * porc_comissao)/100;
@@ -51,6 +51,7 @@ CREATE OR REPLACE FUNCTION
 			comissao_situacao,
 			data_criacao
 			data_atualizacao)
+			
 		VALUES (reg.funcionario_id,
 			  total_comissao,
 			  'A',now(),
