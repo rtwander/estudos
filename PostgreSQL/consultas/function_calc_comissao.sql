@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION
-	calc_comissao(data_ini TIMESTAMP, data_fim TIMESTAMP) RETURN VOID AS
+	calc_comissao(data_ini TIMESTAMP, data_fim TIMESTAMP) RETURNS VOID AS
 	$$
 	DECLARE
 	/* declaração das variáveis que vamos utilizar.
@@ -36,7 +36,7 @@ CREATE OR REPLACE FUNCTION
 		--abertura, utilização e fechamento do cursor
 
 		OPEN cr_porce(reg.funcionario_id);
-		FETCH cr_porce INT porc_comissao;
+		FETCH cr_porce INTO porc_comissao;
 		CLOSE cr_porce;
 
 		total_comissao := (reg.venda_total * porc_comissao)/100;
@@ -49,7 +49,7 @@ CREATE OR REPLACE FUNCTION
 			funcionario_id,
 			comissao_valor,
 			comissao_situacao,
-			data_criacao
+			data_criacao,
 			data_atualizacao)
 			
 		VALUES (reg.funcionario_id,
@@ -65,7 +65,7 @@ CREATE OR REPLACE FUNCTION
 
 		-- devemos zerar as variáveis para reutilizá-las
 
-		total comissao := 0;
+		total_comissao := 0;
 		porc_comissao := 0;
 
 		--termini do loop
