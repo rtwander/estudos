@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION
-	calC_comissao(data_ini TIMESTAMP, data_fim TIMESTAMP) RETURN VOID AS
+	calc_comissao(data_ini TIMESTAMP, data_fim TIMESTAMP) RETURN VOID AS
 	$$
 	DECLARE
 	/* declaração das variáveis que vamos utilizar.
