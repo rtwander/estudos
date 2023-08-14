@@ -27,7 +27,7 @@ CREATE OR REPLACE FUNCTION
 		FOR reg IN(
 		SELECT vendas.id ID,
 				funcionario_id,
-				vendas_total
+				venda_total
 		FROM vendas
 		WHERE data_criacao >= data_ini
 		AND data_criacao <= data_fim
