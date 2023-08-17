@@ -16,7 +16,7 @@ int main() {
 
         for(int i = 0; i < strlen(palavrasecreta); i++) {
             if(palavrasecreta[i] == chute) {
-                printf("A posição %d tem essa letra\n", i+1);
+                printf("A posicao %d tem essa letra\n", i+1);
             }
         }
     } while(!acertou && !enforcou);
