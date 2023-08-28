@@ -1,16 +1,31 @@
 #include <stdio.h>
 
 void abertura(int multiplicador) {
-    printf("Tabuada do %d\n", multiplicador);
+    printf("Esta é a tabuada do %d\n\n", multiplicador);
 }
 
 int main() {
-    int multiplicador = 2;
 
-    abertura(multiplicador);
+    int recomecar;
 
-    for( int i = 0; i <= 10; i++) {
-        int resultado = multiplicador * 1;
-        printf("%d x %d = %d\n", multiplicador, i, multiplicador * i);
-    }
+    do {
+        printf("Bem vindo ao programa de tabuada.\n");
+        printf("Digite o número que será gerada a tabuada.\n");
+
+        int multiplicador;
+        scanf("%d", &multiplicador);
+
+        abertura(multiplicador);
+
+        for( int i = 0; i <= 10; i++) {
+            int resultado = multiplicador * 1;
+            printf("%d x %d = %d\n", multiplicador, i, multiplicador * i);
+        }
+
+        printf("Gostaria de gerar outra tabuada?\n");
+        printf("Selecione 1(SIM), 2(NÃO): ");
+        scanf("%d", &recomecar);
+    } while(recomecar == 1);
+
+    printf("Obrigado por usar o programa e espero que tenha sido útil.\n");
 }
