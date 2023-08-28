@@ -21,7 +21,7 @@ int main() {
             int resultado = multiplicador * 1;
             printf("%d x %d = %d\n", multiplicador, i, multiplicador * i);
         }
-
+        //Menu para reiniciar aplicativo
         printf("Gostaria de gerar outra tabuada?\n");
         printf("Selecione 1(SIM), 2(NÃO): ");
         scanf("%d", &recomecar);
