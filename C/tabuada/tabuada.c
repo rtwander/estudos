@@ -10,7 +10,7 @@ int main() {
 
     do {
         printf("Bem vindo ao programa de tabuada.\n");
-        printf("Digite o número que será gerada a tabuada.\n");
+        printf("Digite o número inteiro que será gerada a tabuada.\n");
 
         int multiplicador;
         scanf("%d", &multiplicador);
