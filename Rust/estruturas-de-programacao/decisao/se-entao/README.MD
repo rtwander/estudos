@@ -1,0 +1,2 @@
+Essa estrutura  avalia uma expressão lógica, resultando um valor que pode ser true ou false.
+Como consequência desse resultado o processamento se fará por um de dois caminhos: se for true o resultado, serão executados os comandos, caso contrário ocorrerá um desvio sem comando algum.

@@ -1,0 +1,5 @@
+[package]
+name = "area-triangulo"
+version = "0.1.0"
+authors = ["Rust Glomba de Souza"]
+description = "Calculadora de área de um triângulo por linha de comando"
