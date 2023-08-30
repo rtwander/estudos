@@ -7,18 +7,16 @@ void abertura() {
     printf("/****************/\n\n");
 }
 
-void chuta() {
+ void chuta(char chutes[], int* tentativas) {
     char chute;
     printf("Qual a letra? ");
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chutes;
-    tentativas ++;
+    chutes[*tentativas] = chute;
+    (*tentativas)++;
 }
 
 int main() {
-
-    abertura();
 
     char palavrasecreta[20];
     sprintf(palavrasecreta, "MELANCIA");
@@ -29,10 +27,12 @@ int main() {
     char chutes[26];
     int tentativas = 0;
 
+    abertura();
+
     do {
+        printf("Você já deu %d chutes\n", tentativas);
         
         for(int i = 0; i < strlen(palavrasecreta); i++) {
-
             int achou = 0;
 
             for(int j = 0; j < tentativas; j++) {
@@ -50,7 +50,7 @@ int main() {
         }
         printf("\n");
 
-        chuta();
+        chuta(chutes, &tentativas);
         
     } while(!acertou && !enforcou);
 }
